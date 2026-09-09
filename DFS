@@ -1,0 +1,75 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP82111nm8dGjAzkXurFLVX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Abhijith2005binu/AI-ML/blob/main/DFS\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def dfs(graph, start_node, visited=None):\n",
+        "    if visited is None:\n",
+        "        visited = set()\n",
+        "\n",
+        "    visited.add(start_node)\n",
+        "    print(start_node, end=' ')\n",
+        "\n",
+        "    for neighbor in graph.get(start_node, []):\n",
+        "        if neighbor not in visited:\n",
+        "            dfs(graph, neighbor, visited)\n",
+        "\n",
+        "graph = {\n",
+        "    'A': ['B', 'C'],\n",
+        "    'B': ['D', 'E'],\n",
+        "    'C': ['F'],\n",
+        "    'D': [],\n",
+        "    'E': ['F'],\n",
+        "    'F': []\n",
+        "}\n",
+        "\n",
+        "print(\"Depth-First Search (DFS):\")\n",
+        "dfs(graph, 'A')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JUHrWhXOq5I1",
+        "outputId": "d158a0ef-200b-4b86-ffa7-c51629cf2af3"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Following is the Depth-First Search (DFS):\n",
+            "A B D E F C "
+          ]
+        }
+      ]
+    }
+  ]
+}
